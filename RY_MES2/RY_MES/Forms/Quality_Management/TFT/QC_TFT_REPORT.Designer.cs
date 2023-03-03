@@ -144,7 +144,7 @@
             // 
             this.xrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel2.Dpi = 254F;
-            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 10F);
+            this.xrLabel2.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(1867.042F, 0F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
@@ -158,7 +158,7 @@
             // 
             this.xrLabel1.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel1.Dpi = 254F;
-            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 10F);
+            this.xrLabel1.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 1.541896F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
@@ -190,7 +190,7 @@
             this.lbl_TICKET_TYPE.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([TICKET_TYPE] = \'NORMAL\',\'■ 정규   □ RMA   □ 기타\' ,\n Iif([TICKET_TYPE] = \'RMA\', " +
                     "\'□ 정규   ■ RMA   □ 기타\',  \'□ 정규   □ RMA   ■ 기타\'))")});
-            this.lbl_TICKET_TYPE.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6.5F);
+            this.lbl_TICKET_TYPE.Font = new System.Drawing.Font("맑은 고딕", 6.5F);
             this.lbl_TICKET_TYPE.LocationFloat = new DevExpress.Utils.PointFloat(1708F, 0F);
             this.lbl_TICKET_TYPE.Multiline = true;
             this.lbl_TICKET_TYPE.Name = "lbl_TICKET_TYPE";
@@ -203,7 +203,7 @@
             // xrTable1
             // 
             this.xrTable1.Dpi = 254F;
-            this.xrTable1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTable1.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(84.00004F, 58.99999F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -346,7 +346,7 @@
             this.lbl_PANEL_NO.Dpi = 254F;
             this.lbl_PANEL_NO.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[WAFER_NO]")});
-            this.lbl_PANEL_NO.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_PANEL_NO.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_PANEL_NO.Multiline = true;
             this.lbl_PANEL_NO.Name = "lbl_PANEL_NO";
             this.lbl_PANEL_NO.StylePriority.UseBorders = false;
@@ -359,7 +359,7 @@
             this.lbl_TFT_SCINTILATOR_SN.Dpi = 254F;
             this.lbl_TFT_SCINTILATOR_SN.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PRODUCT_SN]")});
-            this.lbl_TFT_SCINTILATOR_SN.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_TFT_SCINTILATOR_SN.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TFT_SCINTILATOR_SN.Multiline = true;
             this.lbl_TFT_SCINTILATOR_SN.Name = "lbl_TFT_SCINTILATOR_SN";
             this.lbl_TFT_SCINTILATOR_SN.StylePriority.UseBorders = false;
@@ -372,7 +372,7 @@
             this.lbl_TFT_MAIN_BOARD_SN.Dpi = 254F;
             this.lbl_TFT_MAIN_BOARD_SN.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TFT_SCINTILATOR_SN]")});
-            this.lbl_TFT_MAIN_BOARD_SN.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_TFT_MAIN_BOARD_SN.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TFT_MAIN_BOARD_SN.Multiline = true;
             this.lbl_TFT_MAIN_BOARD_SN.Name = "lbl_TFT_MAIN_BOARD_SN";
             this.lbl_TFT_MAIN_BOARD_SN.StylePriority.UseBorders = false;
@@ -385,7 +385,7 @@
             this.lbl_TFT_CPU_BOARD_SN.Dpi = 254F;
             this.lbl_TFT_CPU_BOARD_SN.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TFT_MAIN_BOARD_SN]")});
-            this.lbl_TFT_CPU_BOARD_SN.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_TFT_CPU_BOARD_SN.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TFT_CPU_BOARD_SN.Multiline = true;
             this.lbl_TFT_CPU_BOARD_SN.Name = "lbl_TFT_CPU_BOARD_SN";
             this.lbl_TFT_CPU_BOARD_SN.StylePriority.UseBorders = false;
@@ -399,7 +399,7 @@
             this.lbl_CONFIRM_USER.Dpi = 254F;
             this.lbl_CONFIRM_USER.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CONFIRM_SIGNATURE]")});
-            this.lbl_CONFIRM_USER.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_CONFIRM_USER.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_CONFIRM_USER.Multiline = true;
             this.lbl_CONFIRM_USER.Name = "lbl_CONFIRM_USER";
             this.lbl_CONFIRM_USER.RowSpan = 3;
@@ -415,7 +415,7 @@
             this.lbl_APPLY_USER.Dpi = 254F;
             this.lbl_APPLY_USER.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[APPLY_SIGNATURE]")});
-            this.lbl_APPLY_USER.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_APPLY_USER.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_APPLY_USER.Multiline = true;
             this.lbl_APPLY_USER.Name = "lbl_APPLY_USER";
             this.lbl_APPLY_USER.RowSpan = 3;
@@ -538,7 +538,7 @@
             this.lbl_TFT_POWER_SN.Dpi = 254F;
             this.lbl_TFT_POWER_SN.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TFT_CPU_BOARD_SN]")});
-            this.lbl_TFT_POWER_SN.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_TFT_POWER_SN.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TFT_POWER_SN.Multiline = true;
             this.lbl_TFT_POWER_SN.Name = "lbl_TFT_POWER_SN";
             this.lbl_TFT_POWER_SN.StylePriority.UseBorders = false;
@@ -552,7 +552,7 @@
             this.lbl_TFT_DETECTOR_LABEL.Dpi = 254F;
             this.lbl_TFT_DETECTOR_LABEL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TFT_POWER_SN]")});
-            this.lbl_TFT_DETECTOR_LABEL.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_TFT_DETECTOR_LABEL.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TFT_DETECTOR_LABEL.Multiline = true;
             this.lbl_TFT_DETECTOR_LABEL.Name = "lbl_TFT_DETECTOR_LABEL";
             this.lbl_TFT_DETECTOR_LABEL.StylePriority.UseBorders = false;
@@ -566,7 +566,7 @@
             this.lbl_TFT_POWER_LABEL.Dpi = 254F;
             this.lbl_TFT_POWER_LABEL.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TFT_POWER_LABEL]")});
-            this.lbl_TFT_POWER_LABEL.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_TFT_POWER_LABEL.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TFT_POWER_LABEL.Multiline = true;
             this.lbl_TFT_POWER_LABEL.Name = "lbl_TFT_POWER_LABEL";
             this.lbl_TFT_POWER_LABEL.StylePriority.UseBorders = false;
@@ -580,7 +580,7 @@
             this.lbl_TFT_AGI_BOX.Dpi = 254F;
             this.lbl_TFT_AGI_BOX.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TFT_AGI_BOX]")});
-            this.lbl_TFT_AGI_BOX.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.lbl_TFT_AGI_BOX.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TFT_AGI_BOX.Multiline = true;
             this.lbl_TFT_AGI_BOX.Name = "lbl_TFT_AGI_BOX";
             this.lbl_TFT_AGI_BOX.StylePriority.UseBorders = false;
@@ -606,7 +606,7 @@
             // xrLabel4
             // 
             this.xrLabel4.Dpi = 254F;
-            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 9F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold);
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(84.00004F, 0F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
@@ -622,7 +622,7 @@
             this.lbl_MODEL_NAME1.Dpi = 254F;
             this.lbl_MODEL_NAME1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "IIF([MODEL_NAME] = \'\', [ITEM_NAME], [MODEL_NAME])")});
-            this.lbl_MODEL_NAME1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 9F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lbl_MODEL_NAME1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold);
             this.lbl_MODEL_NAME1.LocationFloat = new DevExpress.Utils.PointFloat(250.6901F, 0F);
             this.lbl_MODEL_NAME1.Multiline = true;
             this.lbl_MODEL_NAME1.Name = "lbl_MODEL_NAME1";
@@ -644,7 +644,7 @@
             // 
             this.xrTable2.BackColor = System.Drawing.Color.LightGray;
             this.xrTable2.Dpi = 254F;
-            this.xrTable2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTable2.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(84F, 6F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -983,8 +983,8 @@
             this.DataMember = "DataTable1";
             this.DataSource = this.ds_QC_TFT1;
             this.Dpi = 254F;
-            this.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.Margins = new DevExpress.Drawing.DXMargins(0, 16, 124, 0);
+            this.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margins = new System.Drawing.Printing.Margins(0, 16, 124, 0);
             this.PageHeight = 2970;
             this.PageWidth = 2100;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;

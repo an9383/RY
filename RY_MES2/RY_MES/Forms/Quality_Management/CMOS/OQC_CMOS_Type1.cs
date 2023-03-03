@@ -47,7 +47,7 @@ namespace RY_MES.Forms
             lbl_INSPECTION_METHOD.ExpressionBindings.Add(expressionBinding3);
         }
 
-        private void xrTableRow7_BeforePrint(object sender, System.ComponentModel.CancelEventArgs e)
+        private void xrTableRow7_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             if (_ds.Tables[1].Rows.Count <= 0)
             {

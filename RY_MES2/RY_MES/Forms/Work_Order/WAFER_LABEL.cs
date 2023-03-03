@@ -18,7 +18,7 @@ namespace RY_MES.Forms
             new ExpressionBinding("BeforePrint", "Text","[WAFER_NO]")});
         }
 
-        private void xrBarCode1_BeforePrint(object sender, System.ComponentModel.CancelEventArgs e)
+        private void xrBarCode1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrBarCode1.Text = xrBarCode1.Text.ToUpper();
         }

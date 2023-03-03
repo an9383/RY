@@ -68,7 +68,7 @@
             // 
             this.xrLabel3.CanGrow = false;
             this.xrLabel3.Dpi = 254F;
-            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Consolas", 5F);
+            this.xrLabel3.Font = new System.Drawing.Font("Consolas", 5F);
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(5F, 56F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -76,13 +76,13 @@
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.Text = "S/N : H151OHBA720-39857";
             this.xrLabel3.WordWrap = false;
-            this.xrLabel3.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.xrLabel3_BeforePrint);
+            this.xrLabel3.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrLabel3_BeforePrint);
             // 
             // xrLabel2
             // 
             this.xrLabel2.CanGrow = false;
             this.xrLabel2.Dpi = 254F;
-            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Consolas", 5F);
+            this.xrLabel2.Font = new System.Drawing.Font("Consolas", 5F);
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(5F, 31F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -95,7 +95,7 @@
             // 
             this.xrLabel1.CanGrow = false;
             this.xrLabel1.Dpi = 254F;
-            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Consolas", 5F);
+            this.xrLabel1.Font = new System.Drawing.Font("Consolas", 5F);
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(5.000015F, 6F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -119,9 +119,9 @@
             this.DataSource = this.dataSet1;
             this.Dpi = 254F;
             this.DrawGrid = false;
-            this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
+            this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Landscape = true;
-            this.Margins = new DevExpress.Drawing.DXMargins(0, 0, 0, 0);
+            this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0);
             this.PageHeight = 87;
             this.PageWidth = 270;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
