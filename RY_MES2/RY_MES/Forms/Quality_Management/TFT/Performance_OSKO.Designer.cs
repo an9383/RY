@@ -173,7 +173,7 @@ namespace RY_MES.Forms
             // xrLabel3
             // 
             this.xrLabel3.Dpi = 254F;
-            this.xrLabel3.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 16F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(111F, 229F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
@@ -202,7 +202,7 @@ namespace RY_MES.Forms
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable2.Dpi = 254F;
-            this.xrTable2.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTable2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(111F, 361F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -425,7 +425,7 @@ namespace RY_MES.Forms
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable1.Dpi = 254F;
-            this.xrTable1.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTable1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(1393.567F, 120F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -552,7 +552,7 @@ namespace RY_MES.Forms
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable3.Dpi = 254F;
-            this.xrTable3.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTable3.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(111F, 69.62503F);
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -578,7 +578,7 @@ namespace RY_MES.Forms
             this.xrTableCell32,
             this.xrTableCell35});
             this.xrTableRow8.Dpi = 254F;
-            this.xrTableRow8.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Bold);
+            this.xrTableRow8.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableRow8.Name = "xrTableRow8";
             this.xrTableRow8.StylePriority.UseFont = false;
             this.xrTableRow8.Weight = 0.45669291338582674D;
@@ -644,7 +644,7 @@ namespace RY_MES.Forms
             this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME,
             this.xrTableCell13});
             this.xrTableRow13.Dpi = 254F;
-            this.xrTableRow13.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Bold);
+            this.xrTableRow13.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableRow13.Name = "xrTableRow13";
             this.xrTableRow13.StylePriority.UseFont = false;
             this.xrTableRow13.Weight = 0.45669291338582674D;
@@ -652,7 +652,7 @@ namespace RY_MES.Forms
             // xrTableCell5
             // 
             this.xrTableCell5.Dpi = 254F;
-            this.xrTableCell5.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTableCell5.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTableCell5.Multiline = true;
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.StylePriority.UseFont = false;
@@ -662,7 +662,7 @@ namespace RY_MES.Forms
             // xrTableCell6
             // 
             this.xrTableCell6.Dpi = 254F;
-            this.xrTableCell6.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTableCell6.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTableCell6.Multiline = true;
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseFont = false;
@@ -672,7 +672,7 @@ namespace RY_MES.Forms
             // xrTableCell8
             // 
             this.xrTableCell8.Dpi = 254F;
-            this.xrTableCell8.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTableCell8.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTableCell8.Multiline = true;
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.RowSpan = 4;
@@ -685,7 +685,7 @@ namespace RY_MES.Forms
             this.lbl_AUTO_OFFSET_MEDIAN_SPEC.Dpi = 254F;
             this.lbl_AUTO_OFFSET_MEDIAN_SPEC.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AUTO_OFFSET_MEDIAN_SPEC]")});
-            this.lbl_AUTO_OFFSET_MEDIAN_SPEC.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.lbl_AUTO_OFFSET_MEDIAN_SPEC.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.lbl_AUTO_OFFSET_MEDIAN_SPEC.Multiline = true;
             this.lbl_AUTO_OFFSET_MEDIAN_SPEC.Name = "lbl_AUTO_OFFSET_MEDIAN_SPEC";
             this.lbl_AUTO_OFFSET_MEDIAN_SPEC.StylePriority.UseFont = false;
@@ -696,7 +696,7 @@ namespace RY_MES.Forms
             this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME.Dpi = 254F;
             this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AUTO_OFFSET_MEDIAN]")});
-            this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME.Multiline = true;
             this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME.Name = "lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME";
             this.lbl_AUTO_OFFSET_MEDIAN_VALUE_RESULT_NAME.StylePriority.UseFont = false;
@@ -705,7 +705,7 @@ namespace RY_MES.Forms
             // xrTableCell13
             // 
             this.xrTableCell13.Dpi = 254F;
-            this.xrTableCell13.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTableCell13.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTableCell13.Multiline = true;
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.StylePriority.UseFont = false;
@@ -961,7 +961,7 @@ namespace RY_MES.Forms
             // xrLabel2
             // 
             this.xrLabel2.Dpi = 254F;
-            this.xrLabel2.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 9F);
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(111F, 11.62502F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
@@ -997,7 +997,7 @@ namespace RY_MES.Forms
             this.lbl_CHK_PROCESS_NAME.Dpi = 254F;
             this.lbl_CHK_PROCESS_NAME.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[IDX] + \'. \' + [CHK_PROCESS_NAME]")});
-            this.lbl_CHK_PROCESS_NAME.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.lbl_CHK_PROCESS_NAME.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 9F);
             this.lbl_CHK_PROCESS_NAME.LocationFloat = new DevExpress.Utils.PointFloat(111F, 0F);
             this.lbl_CHK_PROCESS_NAME.Multiline = true;
             this.lbl_CHK_PROCESS_NAME.Name = "lbl_CHK_PROCESS_NAME";
@@ -1059,7 +1059,7 @@ namespace RY_MES.Forms
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable5.Dpi = 254F;
-            this.xrTable5.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTable5.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTable5.LocationFloat = new DevExpress.Utils.PointFloat(111F, 0F);
             this.xrTable5.Name = "xrTable5";
             this.xrTable5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -1155,7 +1155,7 @@ namespace RY_MES.Forms
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable4.Dpi = 254F;
-            this.xrTable4.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.xrTable4.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F);
             this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(110.999F, 0F);
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -1177,7 +1177,7 @@ namespace RY_MES.Forms
             this.xrTableCell56,
             this.xrTableCell57});
             this.xrTableRow12.Dpi = 254F;
-            this.xrTableRow12.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Bold);
+            this.xrTableRow12.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 8F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableRow12.Name = "xrTableRow12";
             this.xrTableRow12.StylePriority.UseFont = false;
             this.xrTableRow12.Weight = 0.45669291338582674D;
@@ -1271,7 +1271,7 @@ namespace RY_MES.Forms
             // xrLabel4
             // 
             this.xrLabel4.Dpi = 254F;
-            this.xrLabel4.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 10F);
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 1.541896F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
@@ -1283,7 +1283,7 @@ namespace RY_MES.Forms
             // xrLabel1
             // 
             this.xrLabel1.Dpi = 254F;
-            this.xrLabel1.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 10F);
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(1883.041F, 0F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
@@ -1305,8 +1305,8 @@ namespace RY_MES.Forms
             this.DataMember = "DataTable1";
             this.DataSource = this.ds_OQC_TFT1;
             this.Dpi = 254F;
-            this.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 609, 56);
+            this.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.Margins = new DevExpress.Drawing.DXMargins(0, 0, 609, 56);
             this.PageHeight = 2970;
             this.PageWidth = 2100;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;

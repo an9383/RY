@@ -88,7 +88,7 @@ public partial class View_QC_CMOS_Report_OQC_CMOS_Type1 : System.Web.UI.Page
         if (rpt.FindControl("xrTableRow7", true) != null)
         {
             XRTableRow xrTableRow = (XRTableRow)rpt.FindControl("xrTableRow7", true);
-            xrTableRow.BeforePrint += new System.Drawing.Printing.PrintEventHandler(xrTableRow7_BeforePrint);
+            xrTableRow.BeforePrint += new BeforePrintEventHandler(xrTableRow7_BeforePrint);
         }
 
         query = string.Format("exec CAMDBsh.RY_VR_Proc_CMOS_OQCReport '{0}', '{1}'", pstrContainerName, pstrStepEntryTxnId);
@@ -146,7 +146,7 @@ public partial class View_QC_CMOS_Report_OQC_CMOS_Type1 : System.Web.UI.Page
         return db.GetDataRecord(query);
     }
 
-    private void xrTableRow7_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+    private void xrTableRow7_BeforePrint(object sender, System.ComponentModel.CancelEventArgs e)
     {
         if (_ds.Tables[1].Rows.Count <= 0)
         {
