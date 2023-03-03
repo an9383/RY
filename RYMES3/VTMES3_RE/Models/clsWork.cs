@@ -1,0 +1,241 @@
+﻿using DevExpress.DataAccess.Sql;
+using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.XtraReports.UI;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using VTMES3_RE.Common;
+using static DevExpress.Diagram.Core.Native.Either;
+
+namespace VTMES3_RE.Models
+{
+    public class clsWork
+    {
+        Database db = new Database();
+        string query = "";
+
+        // CMOS FT DATA 업로드시 원본 데이터를 보관 하기 위함
+        public bool FT_CSV_INSERT(string part, string equip, string data)
+        {
+            return db.ExecuteQuery(string.Format("exec IFRY.dbo.RY_Proc_FT_CSV_INSERT N'{0}', N'{1}', N'{2}', '{3}'", part, equip, data, WrGlobal.LoginID));
+        }
+
+        // CMOS FT DATA 의 CMOS 데이터 Insert
+        public bool CmosFtDataCmos(string datas, string max_1)
+        {
+            return db.ExecuteQuery(string.Format("exec IFRY.dbo.RY_Proc_CmosFtDataCmos N'{0}', '{1}', '{2}'", datas, max_1, WrGlobal.LoginID));
+        }
+
+        // CMOS 업로드시 ID_KEY 값이 필요함
+        // 테이블( CmosFtDataCmos )의 ID_KEY 칼럼의 Max + 1 값을 받아옮
+        public String CmosFtDataCmosID_KEY()
+        {
+            //string query;
+            query = string.Format("SELECT ISNULL(MAX(ID_KEY),0) + 1 FROM IFRY.dbo.CmosFtDataCmos");
+
+            DataRowView drv = db.GetDataRecord(query);
+
+            if (drv == null)
+            {
+                return "";
+            }
+            else
+            {
+                return drv[0].ToString();
+            }
+        }
+
+        // IOS 업로드시 ID_KEY 값이 필요함
+        // Master 테이블( CmosFtDataIosM )의 ID_KEY 칼럼의 Max + 1 값을 Return
+        public String CmosFtDataIosID_KEY()
+        {
+            //string query;
+            query = string.Format("SELECT ISNULL(MAX(ID_KEY),0) + 1 FROM IFRY.dbo.CmosFtDataIosM");
+
+            DataRowView drv = db.GetDataRecord(query);
+
+            if (drv == null)
+            {
+                return "";
+            }
+            else
+            {
+                return drv[0].ToString();
+            }
+        }
+
+        // key_no 로 Camstar 의 StepEntryTxnId 를 찾고,
+        // CmosFtDataCmos 테이블에 key_no 와 ID_KEY 가 같은 데이터를 찾아 StepEntryTxnId Update
+        public bool CmosFtDataCmos_StepEntryTxnId(string key_no, string max_1)
+        {
+            return db.ExecuteQuery(string.Format("exec IFRY.dbo.RY_Proc_CmosFtDataCmos_StepEntryTxnId N'{0}', '{1}', '{2}'", key_no, max_1, WrGlobal.LoginID));
+        }
+
+        // key_no 로 Camstar 의 StepEntryTxnId 를 찾고,
+        // CmosFtDataIosD 테이블에 key_no 와 ID_KEY 가 같은 데이터를 찾아 StepEntryTxnId Update
+        public bool CmosFtDataIosD_StepEntryTxnId(string key_no, string max_1)
+        {
+            return db.ExecuteQuery(string.Format("exec IFRY.dbo.RY_Proc_CmosFtDataIosD_StepEntryTxnId N'{0}', '{1}', '{2}'", key_no, max_1, WrGlobal.LoginID));
+        }
+
+
+
+        // CMOS FT DATA 의 IOS 의 Master 데이터 Insert
+        public bool CmosFtDataIosM(string datas, string equip, string max_1)
+        {
+            return db.ExecuteQuery(string.Format("exec IFRY.dbo.RY_Proc_CmosFtDataIosM N'{0}', '{1}', '{2}', '{3}'", datas, equip, max_1, WrGlobal.LoginID));
+        }
+
+        // CMOS FT DATA 의 IOS 의 Detail 데이터 Insert
+        public bool CmosFtDataIosD(string datas, string equip, string max_1)
+        {
+            return db.ExecuteQuery(string.Format("exec IFRY.dbo.RY_Proc_CmosFtDataIosD N'{0}', '{1}', '{2}', '{3}'", datas, equip, max_1, WrGlobal.LoginID));
+        }
+
+        // key 값 으로 SAP Code 를 찾고, SAP Code 의 상항치, 하한치 값을 가져오기
+        public DataView KeynoHighLow(string key_no)
+        {
+            return db.GetDataView("HighLow", string.Format("exec IFRY.dbo.RY_Proc_KeynoHighLow N'{0}'", key_no));
+        }
+
+        public DataView GetDataViewByQuery(string tblName, string _query)
+        {
+            return db.GetDataView(tblName, _query);
+        }
+
+        public void ExecuteQry(string _query)
+        {
+            db.ExecuteQuery(_query);
+        }
+
+        public int ExecuteQryList(List<string> queryList)
+        {
+            return db.ExecuteQueryList(queryList);
+        }
+
+        public DataView GetResourceGroup()
+        {
+            query = string.Format("Select ResourceGroupName 그룹명 "
+                            + "From CAMDBsh.ResourceGroup WITH(NOLOCK) Where ResourceGroupName like 'RY_%' "
+                            + "Order by ResourceGroupName");
+            return db.GetDataView("설비그룹", query);
+        }
+
+        public DataView GetResourceDef(string groupName)
+        {
+            query = string.Format("SELECT RD.ResourceName 설비명 "
+                            + "FROM CAMDBsh.ResourceGroup AS RG WITH(NOLOCK) "
+                                + "INNER JOIN CAMDBsh.ResourceGroupEntries AS RGE WITH(NOLOCK) ON RGE.ResourceGroupId = RG.ResourceGroupId "
+                                + "INNER JOIN CAMDBsh.ResourceDef AS RD WITH(NOLOCK) ON RD.ResourceId = RGE.EntriesId "
+                            + "WHERE RG.ResourceGroupName = N'{0}'", groupName);
+            return db.GetDataView("설비", query);
+        }
+
+        public DataView GetDataCollection(string resourceName)
+        {
+            query = string.Format("select cdb.DataCollectionDefName 명칭, cd.DataCollectionDefId 코드, cd.DataCollectionDefRevision 리비전 "
+                                + "From CAMDBsh.DataCollectionDefBase cdb "
+                                    + "Inner Join CAMDBsh.DataCollectionDef cd on cdb.RevOfRcdId = cd.DataCollectionDefId "
+                                + "where cdb.DataCollectionDefName like '{0}%' "
+                                + "Order By cdb.DataCollectionDefName", resourceName);
+            return db.GetDataView("DataCollection", query);
+        }
+
+        public DataView GetDataPointByCollection(string DataCollectionDefId)
+        {
+            query = string.Format("SELECT dp.DataPointId, dp.DataPointName "
+                                    + ",dp.DataType, dp.IsRequired "
+                                    + ", ( "
+                                        + "SELECT STRING_AGG(og.NamedObjectGroupName, ',') "
+                                        + "FROM CAMDBsh.NamedObjectGroupEntries oge "
+                                            + "INNER JOIN CAMDBsh.NamedObjectGroup og ON oge.EntriesId = og.NamedObjectGroupId "
+                                        + "WHERE oge.NamedObjectGroupId = dp.ObjectGroupId "
+                                    + ") NamedObjectGroupName "
+                                + "FROM CAMDBsh.DataPoint dp "
+                                + "WHERE dp.DataCollectionDefId = '{0}' "
+                                + "ORDER BY dp.RowPosition, dp.ColumnPosition", DataCollectionDefId);
+            return db.GetDataView("DataPoint", query);
+        }
+
+        public DataView GetTaskInfoByCollection(string DataCollectionDefId)
+        {
+            query = string.Format("select tlb.TaskListName + ' -> ' + ta.TaskItemName TaskName, tlb.TaskListName + '|' + ta.TaskItemName TaskValue "
+                            + "From CAMDBsh.TaskItem ta "
+                                + "Inner Join CAMDBsh.TaskList tl on ta.TaskListId = tl.TaskListId "
+                                + "Inner Join CAMDBsh.TaskListBase tlb on tl.TaskListBaseId = tlb.TaskListBaseId "
+                                + "Inner Join CAMDBsh.DataCollectionDefBase cdb on ta.DataCollectionDefBaseId = cdb.DataCollectionDefBaseId "
+                                + "Inner Join CAMDBsh.DataCollectionDef cd on cd.DataCollectionDefId = case when ta.DataCollectionDefId = '0000000000000000' then cdb.RevOfRcdId else ta.DataCollectionDefId end "
+                            + "Where cd.DataCollectionDefId = '{0}'", DataCollectionDefId);
+
+            return db.GetDataView("TaskList", query);
+        }
+
+        public DataView GetEmployeeWorkTimeDef()
+        {
+            query = string.Format("Select Gubun 구분 From IFRY.dbo.EmployeeWorkTimeDef Order by SortOrder");
+
+            return db.GetDataView("EmployeeWorkTimeDef", query);
+        }
+
+        public DataView GetEmployeeWorkTimeRegularDef()
+        {
+            query = string.Format("Select Gubun, StartTime, WorkHour From IFRY.dbo.EmployeeWorkTimeDef Where RegularYn = 'Y'");
+
+            return db.GetDataView("EmployeeWorkTimeRegularDef", query);
+        }
+
+        public String GetEmployeeWorkTimeDefString()
+        {
+            query = string.Format("Select STRING_AGG(Gubun, ',') WITHIN GROUP(ORDER BY SortOrder) Gubun From IFRY.dbo.EmployeeWorkTimeDef");
+
+            DataRowView drv = db.GetDataRecord(query);
+
+            if (drv == null)
+            {
+                return "";
+            }
+            else
+            {
+                return drv[0].ToString();
+            }
+        }
+        // 공장에 대한 사용자 팀리스트(전체 포함)
+        public DataView GetEmployeeTeamList()
+        {
+            query = string.Format("exec CAMDBsh.RY_VR_Proc_Common_EmployeeTeamList N'{0}'", WrGlobal.FactoryName);
+
+            return db.GetDataView("EmployeeTeamList", query);
+        }
+
+        // 공장, 팀에 대한 사용자 리스트 (전체 포함)
+        public DataView GetEmployeeListByTeam(string teamName)
+        {
+            query = string.Format("exec CAMDBsh.RY_VR_Proc_Common_EmployeeListByTeam N'{0}', N'{1}'", WrGlobal.FactoryName, teamName);
+
+            return db.GetDataView("EmployeeList", query);
+        }
+        // 점검년월 콤보 바인딩
+        public DataView GetMachineCheckSheetYear()
+        {
+            query = string.Format("Select YEAR(GETDATE()) CheckYear Union Select CheckYear From IFRY.dbo.MachineCheckSheet group by CheckYear Order By CheckYear");
+            return db.GetDataView("CheckYear", query);
+        }
+
+        public XtraReport GetSelectedReport(string url)
+        {
+            // Return a report by a URL selected in the ListBox.
+            if (url == "")
+                return null;
+            using (MemoryStream stream = new MemoryStream(Program.ReportStorage.GetData(url)))
+            {
+                return XtraReport.FromStream(stream, true);
+            }
+        }
+    }
+}
