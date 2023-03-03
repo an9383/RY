@@ -85,7 +85,7 @@ namespace RY_MES.Forms
             lbl_CREATE_DATE2.ExpressionBindings.Add(expressionbinding6_2);
         }
 
-        private void xrTableRow_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrTableRow_BeforePrint(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //int total_size = 2970 - (Convert.ToInt32(TopMargin.HeightF + PageFooter.HeightF));
 

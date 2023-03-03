@@ -80,13 +80,13 @@
             this.xrBarCode1.Symbology = dataMatrixGenerator1;
             this.xrBarCode1.Text = "19CL58-5-2";
             this.xrBarCode1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrBarCode1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrBarCode1_BeforePrint);
+            this.xrBarCode1.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.xrBarCode1_BeforePrint);
             // 
             // xrLabel1
             // 
             this.xrLabel1.CanGrow = false;
             this.xrLabel1.Dpi = 254F;
-            this.xrLabel1.Font = new System.Drawing.Font("Consolas", 9F);
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Consolas", 9F);
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(5.000018F, 0F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
@@ -113,8 +113,8 @@
             this.DataSource = this.dataSet1;
             this.Dpi = 254F;
             this.DrawGrid = false;
-            this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 0);
+            this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
+            this.Margins = new DevExpress.Drawing.DXMargins(0, 0, 0, 0);
             this.PageHeight = 90;
             this.PageWidth = 390;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;

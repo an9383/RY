@@ -296,7 +296,7 @@
             // xrTable1
             // 
             this.xrTable1.Dpi = 254F;
-            this.xrTable1.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.xrTable1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(129)))});
             this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(99.5F, 100F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
@@ -332,7 +332,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell1.CanGrow = false;
             this.xrTableCell1.Dpi = 254F;
-            this.xrTableCell1.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 16F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell1.Multiline = true;
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.RowSpan = 3;
@@ -347,7 +347,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell8.CanGrow = false;
             this.xrTableCell8.Dpi = 254F;
-            this.xrTableCell8.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.xrTableCell8.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.xrTableCell8.Multiline = true;
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.RowSpan = 3;
@@ -361,7 +361,7 @@
             this.xrTableCell9.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right)));
             this.xrTableCell9.CanGrow = false;
             this.xrTableCell9.Dpi = 254F;
-            this.xrTableCell9.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.xrTableCell9.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.xrTableCell9.Multiline = true;
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseBorders = false;
@@ -374,7 +374,7 @@
             this.xrTableCell2.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right)));
             this.xrTableCell2.CanGrow = false;
             this.xrTableCell2.Dpi = 254F;
-            this.xrTableCell2.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.xrTableCell2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.StylePriority.UseBorders = false;
@@ -416,7 +416,7 @@
             this.lbl_CreateUser1.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right)));
             this.lbl_CreateUser1.CanGrow = false;
             this.lbl_CreateUser1.Dpi = 254F;
-            this.lbl_CreateUser1.Font = new System.Drawing.Font("맑은 고딕", 5F, System.Drawing.FontStyle.Italic);
+            this.lbl_CreateUser1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F, DevExpress.Drawing.DXFontStyle.Italic);
             this.lbl_CreateUser1.Multiline = true;
             this.lbl_CreateUser1.Name = "lbl_CreateUser1";
             this.lbl_CreateUser1.StylePriority.UseBorders = false;
@@ -428,7 +428,7 @@
             this.lbl_ApprovalUser.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right)));
             this.lbl_ApprovalUser.CanGrow = false;
             this.lbl_ApprovalUser.Dpi = 254F;
-            this.lbl_ApprovalUser.Font = new System.Drawing.Font("맑은 고딕", 5F, System.Drawing.FontStyle.Italic);
+            this.lbl_ApprovalUser.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F, DevExpress.Drawing.DXFontStyle.Italic);
             this.lbl_ApprovalUser.Multiline = true;
             this.lbl_ApprovalUser.Name = "lbl_ApprovalUser";
             this.lbl_ApprovalUser.StylePriority.UseBorders = false;
@@ -470,7 +470,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_CreateDate1.CanGrow = false;
             this.lbl_CreateDate1.Dpi = 254F;
-            this.lbl_CreateDate1.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_CreateDate1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_CreateDate1.Multiline = true;
             this.lbl_CreateDate1.Name = "lbl_CreateDate1";
             this.lbl_CreateDate1.StylePriority.UseBorders = false;
@@ -483,7 +483,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_ApprovalDate.CanGrow = false;
             this.lbl_ApprovalDate.Dpi = 254F;
-            this.lbl_ApprovalDate.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_ApprovalDate.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_ApprovalDate.Multiline = true;
             this.lbl_ApprovalDate.Name = "lbl_ApprovalDate";
             this.lbl_ApprovalDate.StylePriority.UseBorders = false;
@@ -507,7 +507,7 @@
             this.xrTableCell41.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell41.CanGrow = false;
             this.xrTableCell41.Dpi = 254F;
-            this.xrTableCell41.Font = new System.Drawing.Font("맑은 고딕", 5.22F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell41.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.22F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell41.Multiline = true;
             this.xrTableCell41.Name = "xrTableCell41";
             this.xrTableCell41.StylePriority.UseBorders = false;
@@ -520,7 +520,7 @@
             this.lbl_ProductName.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_ProductName.CanGrow = false;
             this.lbl_ProductName.Dpi = 254F;
-            this.lbl_ProductName.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_ProductName.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_ProductName.Multiline = true;
             this.lbl_ProductName.Name = "lbl_ProductName";
             this.lbl_ProductName.StylePriority.UseBorders = false;
@@ -534,7 +534,7 @@
             this.xrTableCell44.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell44.CanGrow = false;
             this.xrTableCell44.Dpi = 254F;
-            this.xrTableCell44.Font = new System.Drawing.Font("맑은 고딕", 5.44F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell44.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.44F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell44.Multiline = true;
             this.xrTableCell44.Name = "xrTableCell44";
             this.xrTableCell44.RowSpan = 2;
@@ -548,7 +548,7 @@
             this.lbl_ModelName.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_ModelName.CanGrow = false;
             this.lbl_ModelName.Dpi = 254F;
-            this.lbl_ModelName.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_ModelName.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_ModelName.Multiline = true;
             this.lbl_ModelName.Name = "lbl_ModelName";
             this.lbl_ModelName.RowSpan = 2;
@@ -563,7 +563,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_Version.CanGrow = false;
             this.lbl_Version.Dpi = 254F;
-            this.lbl_Version.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_Version.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_Version.Multiline = true;
             this.lbl_Version.Name = "lbl_Version";
             this.lbl_Version.RowSpan = 2;
@@ -589,7 +589,7 @@
             this.xrTableCell11.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell11.CanGrow = false;
             this.xrTableCell11.Dpi = 254F;
-            this.xrTableCell11.Font = new System.Drawing.Font("맑은 고딕", 5.22F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell11.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.22F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell11.Multiline = true;
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.StylePriority.UseBorders = false;
@@ -602,7 +602,7 @@
             this.lbl_SN.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_SN.CanGrow = false;
             this.lbl_SN.Dpi = 254F;
-            this.lbl_SN.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_SN.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_SN.Multiline = true;
             this.lbl_SN.Name = "lbl_SN";
             this.lbl_SN.StylePriority.UseBorders = false;
@@ -623,7 +623,7 @@
             this.lbl_ModelName2.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_ModelName2.CanGrow = false;
             this.lbl_ModelName2.Dpi = 254F;
-            this.lbl_ModelName2.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_ModelName2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_ModelName2.Multiline = true;
             this.lbl_ModelName2.Name = "lbl_ModelName2";
             this.lbl_ModelName2.StylePriority.UseBorders = false;
@@ -658,7 +658,7 @@
             this.xrTableCell51.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell51.CanGrow = false;
             this.xrTableCell51.Dpi = 254F;
-            this.xrTableCell51.Font = new System.Drawing.Font("맑은 고딕", 5.22F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell51.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.22F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell51.Multiline = true;
             this.xrTableCell51.Name = "xrTableCell51";
             this.xrTableCell51.StylePriority.UseBorders = false;
@@ -671,7 +671,7 @@
             this.xrTableCell53.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell53.CanGrow = false;
             this.xrTableCell53.Dpi = 254F;
-            this.xrTableCell53.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.xrTableCell53.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.xrTableCell53.Multiline = true;
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StylePriority.UseBorders = false;
@@ -684,7 +684,7 @@
             this.xrTableCell54.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell54.CanGrow = false;
             this.xrTableCell54.Dpi = 254F;
-            this.xrTableCell54.Font = new System.Drawing.Font("맑은 고딕", 5.22F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell54.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.22F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell54.Multiline = true;
             this.xrTableCell54.Name = "xrTableCell54";
             this.xrTableCell54.StylePriority.UseBorders = false;
@@ -697,7 +697,7 @@
             this.lbl_CreateDate2.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_CreateDate2.CanGrow = false;
             this.lbl_CreateDate2.Dpi = 254F;
-            this.lbl_CreateDate2.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_CreateDate2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_CreateDate2.Multiline = true;
             this.lbl_CreateDate2.Name = "lbl_CreateDate2";
             this.lbl_CreateDate2.StylePriority.UseBorders = false;
@@ -709,7 +709,7 @@
             this.xrTableCell56.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell56.CanGrow = false;
             this.xrTableCell56.Dpi = 254F;
-            this.xrTableCell56.Font = new System.Drawing.Font("맑은 고딕", 5.22F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell56.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.22F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell56.Multiline = true;
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StylePriority.UseBorders = false;
@@ -723,7 +723,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_CreateUser2.CanGrow = false;
             this.lbl_CreateUser2.Dpi = 254F;
-            this.lbl_CreateUser2.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.lbl_CreateUser2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.lbl_CreateUser2.Multiline = true;
             this.lbl_CreateUser2.Name = "lbl_CreateUser2";
             this.lbl_CreateUser2.StylePriority.UseBorders = false;
@@ -748,7 +748,7 @@
             this.xrTableCell61.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell61.CanGrow = false;
             this.xrTableCell61.Dpi = 254F;
-            this.xrTableCell61.Font = new System.Drawing.Font("맑은 고딕", 5.44F);
+            this.xrTableCell61.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.44F);
             this.xrTableCell61.Multiline = true;
             this.xrTableCell61.Name = "xrTableCell61";
             this.xrTableCell61.StylePriority.UseBorders = false;
@@ -761,7 +761,7 @@
             this.xrTableCell62.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell62.CanGrow = false;
             this.xrTableCell62.Dpi = 254F;
-            this.xrTableCell62.Font = new System.Drawing.Font("맑은 고딕", 5.44F);
+            this.xrTableCell62.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.44F);
             this.xrTableCell62.Multiline = true;
             this.xrTableCell62.Name = "xrTableCell62";
             this.xrTableCell62.StylePriority.UseBorders = false;
@@ -774,7 +774,7 @@
             this.xrTableCell63.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell63.CanGrow = false;
             this.xrTableCell63.Dpi = 254F;
-            this.xrTableCell63.Font = new System.Drawing.Font("맑은 고딕", 5.44F);
+            this.xrTableCell63.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.44F);
             this.xrTableCell63.Multiline = true;
             this.xrTableCell63.Name = "xrTableCell63";
             this.xrTableCell63.StylePriority.UseBorders = false;
@@ -787,7 +787,7 @@
             this.xrTableCell65.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell65.CanGrow = false;
             this.xrTableCell65.Dpi = 254F;
-            this.xrTableCell65.Font = new System.Drawing.Font("맑은 고딕", 5.44F);
+            this.xrTableCell65.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.44F);
             this.xrTableCell65.Multiline = true;
             this.xrTableCell65.Name = "xrTableCell65";
             this.xrTableCell65.StylePriority.UseBorders = false;
@@ -800,7 +800,7 @@
             this.xrTableCell66.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell66.CanGrow = false;
             this.xrTableCell66.Dpi = 254F;
-            this.xrTableCell66.Font = new System.Drawing.Font("맑은 고딕", 5.44F);
+            this.xrTableCell66.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.44F);
             this.xrTableCell66.Multiline = true;
             this.xrTableCell66.Name = "xrTableCell66";
             this.xrTableCell66.StylePriority.UseBorders = false;
@@ -813,7 +813,7 @@
             this.xrTableCell13.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell13.Dpi = 254F;
-            this.xrTableCell13.Font = new System.Drawing.Font("맑은 고딕", 5.44F);
+            this.xrTableCell13.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5.44F);
             this.xrTableCell13.Multiline = true;
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.StylePriority.UseBorders = false;
@@ -833,7 +833,7 @@
             // xrLabel2
             // 
             this.xrLabel2.Dpi = 254F;
-            this.xrLabel2.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 10F);
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(1883.041F, 0F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
@@ -845,7 +845,7 @@
             // xrLabel1
             // 
             this.xrLabel1.Dpi = 254F;
-            this.xrLabel1.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 10F);
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 1.541896F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
@@ -867,7 +867,7 @@
             // 
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable2.Dpi = 254F;
-            this.xrTable2.Font = new System.Drawing.Font("맑은 고딕", 5F);
+            this.xrTable2.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F);
             this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(99.5F, 0F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
@@ -2856,7 +2856,7 @@
             // xrTableCell212
             // 
             this.xrTableCell212.Dpi = 254F;
-            this.xrTableCell212.Font = new System.Drawing.Font("맑은 고딕", 5F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell212.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell212.Multiline = true;
             this.xrTableCell212.Name = "xrTableCell212";
             this.xrTableCell212.StylePriority.UseFont = false;
@@ -2868,7 +2868,7 @@
             this.lbl_1158.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.lbl_1158.Dpi = 254F;
-            this.lbl_1158.Font = new System.Drawing.Font("맑은 고딕", 5F, System.Drawing.FontStyle.Bold);
+            this.lbl_1158.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 5F, DevExpress.Drawing.DXFontStyle.Bold);
             this.lbl_1158.Multiline = true;
             this.lbl_1158.Name = "lbl_1158";
             this.lbl_1158.StylePriority.UseBorders = false;
@@ -2884,8 +2884,8 @@
             this.BottomMargin,
             this.Detail});
             this.Dpi = 254F;
-            this.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 527, 53);
+            this.Font = new DevExpress.Drawing.DXFont("맑은 고딕", 6F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.Margins = new DevExpress.Drawing.DXMargins(0, 0, 527, 53);
             this.PageHeight = 2970;
             this.PageWidth = 2100;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
