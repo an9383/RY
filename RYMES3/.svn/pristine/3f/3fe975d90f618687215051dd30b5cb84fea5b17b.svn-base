@@ -1,0 +1,129 @@
+﻿using DevExpress.DataAccess.Sql;
+using DevExpress.DataProcessing.InMemoryDataProcessor;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using VTMES3_RE.Common;
+using static DevExpress.Diagram.Core.Native.Either;
+
+namespace VTMES3_RE.Models
+{
+    public class clsWork
+    {
+        Database db = new Database();
+        string query = "";
+
+        public DataView GetResourceGroup()
+        {
+            query = string.Format("Select ResourceGroupName 그룹명 "
+                            + "From CAMDB.CAMDBsh.ResourceGroup WITH(NOLOCK) Where ResourceGroupName like 'RY_%' "
+                            + "Order by ResourceGroupName");
+            return db.GetDataView("설비그룹", query);
+        }
+
+        public DataView GetResourceDef(string groupName)
+        {
+            query = string.Format("SELECT RD.ResourceName 설비명 "
+                            + "FROM CAMDB.CAMDBsh.ResourceGroup AS RG WITH(NOLOCK) "
+                                + "INNER JOIN CAMDB.CAMDBsh.ResourceGroupEntries AS RGE WITH(NOLOCK) ON RGE.ResourceGroupId = RG.ResourceGroupId "
+                                + "INNER JOIN CAMDB.CAMDBsh.ResourceDef AS RD WITH(NOLOCK) ON RD.ResourceId = RGE.EntriesId "
+                            + "WHERE RG.ResourceGroupName = N'{0}'", groupName);
+            return db.GetDataView("설비", query);
+        }
+
+        public DataView GetDataCollection(string resourceName)
+        {
+            query = string.Format("select cdb.DataCollectionDefName 명칭, cd.DataCollectionDefId 코드, cd.DataCollectionDefRevision 리비전 "
+                                + "From CAMDBsh.DataCollectionDefBase cdb "
+                                    + "Inner Join CAMDBsh.DataCollectionDef cd on cdb.RevOfRcdId = cd.DataCollectionDefId "
+                                + "where cdb.DataCollectionDefName like '{0}%' "
+                                + "Order By cdb.DataCollectionDefName", resourceName);
+            return db.GetDataView("DataCollection", query);
+        }
+
+        public DataView GetDataPointByCollection(string DataCollectionDefId)
+        {
+            query = string.Format("SELECT dp.DataPointId, dp.DataPointName "
+                                    + ",dp.DataType, dp.IsRequired "
+                                    + ", ( "
+                                        + "SELECT STRING_AGG(og.NamedObjectGroupName, ',') "
+                                        + "FROM CAMDBsh.NamedObjectGroupEntries oge "
+                                            + "INNER JOIN CAMDBsh.NamedObjectGroup og ON oge.EntriesId = og.NamedObjectGroupId "
+                                        + "WHERE oge.NamedObjectGroupId = dp.ObjectGroupId "
+                                    + ") NamedObjectGroupName "
+                                + "FROM CAMDBsh.DataPoint dp "
+                                + "WHERE dp.DataCollectionDefId = '{0}' "
+                                + "ORDER BY dp.RowPosition, dp.ColumnPosition", DataCollectionDefId);
+            return db.GetDataView("DataPoint", query);
+        }
+
+        public DataView GetTaskInfoByCollection(string DataCollectionDefId)
+        {
+            query = string.Format("select tlb.TaskListName + ' -> ' + ta.TaskItemName TaskName, tlb.TaskListName + '|' + ta.TaskItemName TaskValue "
+                            + "From CAMDBsh.TaskItem ta "
+                                + "Inner Join CAMDBsh.TaskList tl on ta.TaskListId = tl.TaskListId "
+                                + "Inner Join CAMDBsh.TaskListBase tlb on tl.TaskListBaseId = tlb.TaskListBaseId "
+                                + "Inner Join CAMDBsh.DataCollectionDefBase cdb on ta.DataCollectionDefBaseId = cdb.DataCollectionDefBaseId "
+                                + "Inner Join CAMDBsh.DataCollectionDef cd on cd.DataCollectionDefId = case when ta.DataCollectionDefId = '0000000000000000' then cdb.RevOfRcdId else ta.DataCollectionDefId end "
+                            + "Where cd.DataCollectionDefId = '{0}'", DataCollectionDefId);
+
+            return db.GetDataView("TaskList", query);
+        }
+
+        public DataView GetEmployeeWorkTimeDef()
+        {
+            query = string.Format("Select Gubun 구분 From IFRY.dbo.EmployeeWorkTimeDef Order by SortOrder");
+
+            return db.GetDataView("EmployeeWorkTimeDef", query);
+        }
+
+        public DataView GetEmployeeWorkTimeRegularDef()
+        {
+            query = string.Format("Select Gubun, StartTime, WorkHour From IFRY.dbo.EmployeeWorkTimeDef Where RegularYn = 'Y'");
+
+            return db.GetDataView("EmployeeWorkTimeRegularDef", query);
+        }
+
+        public String GetEmployeeWorkTimeDefString()
+        {
+            query = string.Format("Select STRING_AGG(Gubun, ',') WITHIN GROUP(ORDER BY SortOrder) Gubun From IFRY.dbo.EmployeeWorkTimeDef");
+
+            DataRowView drv = db.GetDataRecord(query);
+
+            if (drv == null)
+            {
+                return "";
+            }
+            else
+            {
+                return drv[0].ToString();
+            }
+        }
+        // 공장에 대한 사용자 팀리스트(전체 포함)
+        public DataView GetEmployeeTeamList()
+        {
+            query = string.Format("exec CAMDBsh.RY_VR_Proc_Common_EmployeeTeamList N'{0}'", WrGlobal.FactoryName);
+
+            return db.GetDataView("EmployeeTeamList", query);
+        }
+
+        // 공장, 팀에 대한 사용자 리스트 (전체 포함)
+        public DataView GetEmployeeListByTeam(string teamName)
+        {
+            query = string.Format("exec CAMDBsh.RY_VR_Proc_Common_EmployeeListByTeam N'{0}', N'{1}'", WrGlobal.FactoryName, teamName);
+
+            return db.GetDataView("EmployeeList", query);
+        }
+        // 점검년월 콤보 바인딩
+        public DataView GetMachineCheckSheetYear()
+        {
+            query = string.Format("Select YEAR(GETDATE()) CheckYear Union Select CheckYear From IFRY.dbo.MachineCheckSheet group by CheckYear Order By CheckYear");
+            return db.GetDataView("CheckYear", query);
+        }
+    }
+}

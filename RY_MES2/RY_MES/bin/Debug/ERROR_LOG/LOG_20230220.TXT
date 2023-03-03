@@ -1,0 +1,4 @@
+[2023-02-20 11:32:55.682755] 	[DataBase Exception] 
+	 SQL : SYS_APP_HISTORY_INSERT
+	 Parameter : @p_user_code :  ; @p_his_gubun : LOGIN FAIL ; @p_his_ipaddr :  ; @p_his_macaddr :  ; 
+Procedure or function 'SYS_APP_HISTORY_INSERT' expects parameter '@p_his_ipaddr', which was not supplied.

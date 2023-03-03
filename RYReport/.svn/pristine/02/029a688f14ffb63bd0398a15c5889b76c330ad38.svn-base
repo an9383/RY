@@ -1,0 +1,139 @@
+﻿using DevExpress.XtraReports.Native;
+using DevExpress.XtraReports.UI;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Web;
+
+public partial class View_QC_TFT_Report_OQC_1417_Medical : System.Web.UI.Page
+{
+    protected string pstrReportName = "";
+    protected string pstrContainerName = "";
+    protected string pstrStepEntryTxnId = "";
+    protected string pstrErrMsg = "";
+    protected clsDatabase db = new clsDatabase();
+    protected string query = "";
+    protected DataRowView master = null;
+
+    protected DataSet _ds;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if ((Session["EmpNo"] ?? "").ToString() == "")
+        {
+            try
+            {
+                HttpContext.Current.Response.Redirect("~/View/SessionError.aspx");
+            }
+            catch (ApplicationException)
+            {
+                HttpContext.Current.Response.RedirectLocation =
+                                     System.Web.VirtualPathUtility.ToAbsolute("~/View/SessionError.aspx");
+            }
+        }
+
+        if (!IsPostBack)
+        {
+
+        }
+
+        if ((Request.QueryString["TEMPLATE_FORM"] ?? "") == "")
+        {
+            pstrErrMsg = "레포트를 가져올수 없습니다.(TEMPLATE_FORM 없음)";
+            return;
+        }
+
+        pstrReportName = Request.QueryString["TEMPLATE_FORM"] ?? "";
+        pstrContainerName = Request.QueryString["ContainerName"] ?? "";
+        pstrStepEntryTxnId = Request.QueryString["StepEntryTxnId"] ?? "";
+
+        //pstrReportId = "66";
+        //pstrContainerName = "RYOQ-test20221118001";
+        //pstrStepEntryTxnId = "";
+
+        master = IsExistReportItem(pstrReportName);
+
+        if (master == null)
+        {
+            pstrErrMsg = "양식이 작성되지 않았습니다.";
+            return;
+        }
+
+        if (master["LayoutData"].ToString() == "")
+        {
+            pstrErrMsg = "양식이 작성되지 않았습니다.";
+            return;
+        }
+
+        master["LayoutData"] = master["LayoutData"].ToString().Replace("?<?", "<?");
+
+        XtraReport rpt = new XtraReport();
+        using (StreamWriter sw = new StreamWriter(new MemoryStream()))
+        {
+            sw.Write(master["LayoutData"]);
+            sw.Flush();
+            rpt.LoadLayoutFromXml(sw.BaseStream);
+        }
+
+        foreach (DevExpress.XtraReports.Parameters.Parameter param in rpt.Parameters)
+        {
+            if (Request.QueryString[param.Name] != null)
+            {
+                param.Value = Request.QueryString[param.Name];
+            }
+        }
+
+        query = string.Format("exec CAMDBsh.RY_VR_Proc_TFT_OQCReport '{0}', '{1}'", pstrContainerName, pstrStepEntryTxnId);
+        _ds = db.GetDataSet(query);
+
+        rpt.DataSource= _ds;
+        rpt.DataMember = _ds.Tables[1].TableName;
+
+        DataRow[] resolutions = _ds.Tables[2].Select("CHK_ID IN (2588, 2589)");
+        foreach (DataRow resolution in resolutions)
+        {
+            if (resolution["CHK_ID"].ToString() == "2588" && resolution["VALUE_RESULT_NAME"].ToString() == "OK")
+            {
+                if (rpt.FindControl("lbl_Resolution", true) != null)
+                    rpt.FindControl("lbl_Resolution", true).Text = "3268 × 2756의 픽셀해상도를 가져야 한다. (■ 127㎛)"
+                                        + "(Must have pixel resolution of 3268 x 2756)\n"
+                                        + "2440 × 2992의 픽셀해상도를 가져야 한다. (□ 140㎛)"
+                                        + "(Must have pixel resolution of 2440 x 2992)";
+                if (rpt.FindControl("lbl_Resolution_Value", true) != null)
+                    rpt.FindControl("lbl_Resolution_Value", true).Text = resolutions[0]["INSPECTION_RESULT"].ToString();
+            }
+            else if (resolution["CHK_ID"].ToString() == "2589" && resolution["VALUE_RESULT_NAME"].ToString() == "OK")
+            {
+                if (rpt.FindControl("lbl_Resolution", true) != null)
+                    rpt.FindControl("lbl_Resolution", true).Text = "3268 × 2756의 픽셀해상도를 가져야 한다. (□ 127㎛)"
+                                        + "(Must have pixel resolution of 3268 x 2756)\n"
+                                        + "2440 × 2992의 픽셀해상도를 가져야 한다. (■ 140㎛)"
+                                        + "(Must have pixel resolution of 2440 x 2992)";
+                if (rpt.FindControl("lbl_Resolution_Value", true) != null)
+                    rpt.FindControl("lbl_Resolution_Value", true).Text = resolutions[0]["INSPECTION_RESULT"].ToString();
+            }
+        }
+
+        foreach (DataRow row in _ds.Tables[2].Rows)
+        {
+            string lbl_name = "lbl_" + row["CHK_ID"].ToString();
+
+            if (rpt.FindControl(lbl_name, true) != null)
+                rpt.FindControl(lbl_name, true).Text = row["INSPECTION_RESULT"].ToString();
+        }
+
+        rpt.RequestParameters = false;
+
+        WebDocumentViewer.OpenReport(rpt);
+    }
+
+    protected DataRowView IsExistReportItem(string reportName)
+    {
+        query = string.Format("Select * From {0}_ReportDB.dbo.ReportItem Where CorpId = '{0}' and ReportName = {1}",
+                        Session["CorpId"], reportName);
+
+        return db.GetDataRecord(query);
+    }
+}

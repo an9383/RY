@@ -1,0 +1,156 @@
+﻿using DevExpress.XtraReports.Native;
+using DevExpress.XtraReports.UI;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class View_QC_CMOS_Report_OQC_CMOS_MAPLE_1314 : System.Web.UI.Page
+{
+    protected string pstrReportName = "";
+    protected string pstrContainerName = "";
+    protected string pstrStepEntryTxnId = "";
+    protected string pstrErrMsg = "";
+    protected clsDatabase db = new clsDatabase();
+    protected string query = "";
+    protected DataRowView master = null;
+
+    protected DataSet _ds;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        if ((Request.QueryString["cmd"] ?? "") != "esig" && (Session["EmpNo"] ?? "").ToString() == "")
+        {
+            try
+            {
+                HttpContext.Current.Response.Redirect("~/View/SessionError.aspx");
+            }
+            catch (ApplicationException)
+            {
+                HttpContext.Current.Response.RedirectLocation =
+                                     System.Web.VirtualPathUtility.ToAbsolute("~/View/SessionError.aspx");
+            }
+        }
+
+        if (!IsPostBack)
+        {
+
+        }
+
+        if ((Request.QueryString["TEMPLATE_FORM"] ?? "") == "")
+        {
+            pstrErrMsg = "레포트를 가져올수 없습니다.(TEMPLATE_FORM 없음)";
+            return;
+        }
+
+        pstrReportName = Request.QueryString["TEMPLATE_FORM"] ?? "";
+        pstrContainerName = Request.QueryString["ContainerName"] ?? "";
+        pstrStepEntryTxnId = Request.QueryString["StepEntryTxnId"] ?? "";
+
+        //pstrReportId = "45";
+        //pstrContainerName = "RYOQ-test20221118001";
+        //pstrStepEntryTxnId = "";
+
+        master = IsExistReportItem(pstrReportName);
+
+        if (master == null)
+        {
+            pstrErrMsg = "양식이 작성되지 않았습니다.";
+            return;
+        }
+
+        if (master["LayoutData"].ToString() == "")
+        {
+            pstrErrMsg = "양식이 작성되지 않았습니다.";
+            return;
+        }
+
+        master["LayoutData"] = master["LayoutData"].ToString().Replace("?<?", "<?");
+
+        XtraReport rpt = new XtraReport();
+        // Obtain the report from the string.
+        using (StreamWriter sw = new StreamWriter(new MemoryStream()))
+        {
+            sw.Write(master["LayoutData"]);
+            sw.Flush();
+            rpt.LoadLayoutFromXml(sw.BaseStream);
+        }
+
+        foreach (DevExpress.XtraReports.Parameters.Parameter param in rpt.Parameters)
+        {
+            if (Request.QueryString[param.Name] != null)
+            {
+                param.Value = Request.QueryString[param.Name];
+            }
+        }
+
+        query = string.Format("exec CAMDBsh.RY_VR_Proc_CMOS_OQCReport '{0}', '{1}'", pstrContainerName, pstrStepEntryTxnId);
+        _ds = db.GetDataSet(query);
+
+        DataRow dr1 = _ds.Tables[0].Rows[0];
+        if (rpt.FindControl("lbl_CONFIRM_SIGNATURE", true) != null) 
+            rpt.FindControl("lbl_CONFIRM_SIGNATURE", true).Text = dr1["CONFIRM_SIGNATURE"].ToString();
+        if (rpt.FindControl("lbl_APPLY_SIGNATURE", true) != null)
+            rpt.FindControl("lbl_APPLY_SIGNATURE", true).Text = dr1["APPLY_SIGNATURE"].ToString();
+
+        if (_ds.Tables[1].Rows.Count > 0)
+        {
+            DataRow dr2 = _ds.Tables[1].Rows[0];
+            if (rpt.FindControl("lbl_CREATE_DATE", true) != null)
+                rpt.FindControl("lbl_CREATE_DATE", true).Text = dr2["CREATE_DATE"].ToString();
+            if (rpt.FindControl("lbl_CREATE_USER", true) != null)
+                rpt.FindControl("lbl_CREATE_USER", true).Text = dr2["CREATE_SIGNATURE"].ToString();
+            if (rpt.FindControl("lbl_CREATE_SIGNATURE", true) != null)
+                rpt.FindControl("lbl_CREATE_SIGNATURE", true).Text = dr2["CREATE_SIGNATURE"].ToString();
+        }
+
+        foreach (DataRow row in _ds.Tables[1].Rows)
+        {
+            string lbl_name = "lbl_" + row["CHK_ID"].ToString();
+
+            if (rpt.FindControl(lbl_name, true) != null)
+                rpt.FindControl(lbl_name, true).Text = row["INSPECTION_RESULT"].ToString();
+        }
+
+        rpt.DataSource = _ds.Tables[2];
+        rpt.DataMember = _ds.Tables[2].TableName;
+
+        if (rpt.FindControl("lbl_NUM1", true) != null)
+            rpt.FindControl("lbl_NUM1", true).DataBindings.Add("Text", rpt.DataSource, "NUM1");
+        if (rpt.FindControl("lbl_NUM2", true) != null)
+            rpt.FindControl("lbl_NUM2", true).DataBindings.Add("Text", rpt.DataSource, "NUM2");
+        if (rpt.FindControl("lbl_NUM3", true) != null)
+            rpt.FindControl("lbl_NUM3", true).DataBindings.Add("Text", rpt.DataSource, "NUM3");
+        if (rpt.FindControl("lbl_NUM4", true) != null)
+            rpt.FindControl("lbl_NUM4", true).DataBindings.Add("Text", rpt.DataSource, "NUM4");
+
+        if (rpt.FindControl("lbl_PRODUCT_SN1", true) != null)
+            rpt.FindControl("lbl_PRODUCT_SN1", true).DataBindings.Add("Text", rpt.DataSource, "PRODUCT_SN1");
+        if (rpt.FindControl("lbl_PRODUCT_SN2", true) != null)
+            rpt.FindControl("lbl_PRODUCT_SN2", true).DataBindings.Add("Text", rpt.DataSource, "PRODUCT_SN2");
+
+        if (rpt.FindControl("lbl_CARD_SN1", true) != null)
+            rpt.FindControl("lbl_CARD_SN1", true).DataBindings.Add("Text", rpt.DataSource, "CARD_SN1");
+        if (rpt.FindControl("lbl_CARD_SN2", true) != null)
+            rpt.FindControl("lbl_CARD_SN2", true).DataBindings.Add("Text", rpt.DataSource, "CARD_SN2");
+
+        rpt.RequestParameters = false;
+
+        WebCodumentViewer.OpenReport(rpt);
+
+        //WebCodumentViewer.OpenReportXmlLayout(System.Text.Encoding.UTF8.GetBytes(master["LayoutData"].ToString()));
+    }
+
+    protected DataRowView IsExistReportItem(string reportName)
+    {
+        query = string.Format("Select * From {0}_ReportDB.dbo.ReportItem Where CorpId = '{0}' and ReportName = '{1}'",
+                        Session["CorpId"], reportName);
+
+        return db.GetDataRecord(query);
+    }
+}

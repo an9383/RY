@@ -1,0 +1,517 @@
+﻿using DevExpress.Charts.Native;
+using DevExpress.CodeParser;
+using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
+using Microsoft.SqlServer.Server;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+//using static DevExpress.Data.Mask.Internal.RegExMaskMath.DraftFiniteAutomaton<T>;
+using VTMES3_RE.Common;
+using VTMES3_RE.Models;
+
+namespace VTMES3_RE.View.WorkManager
+{
+    public partial class frmCMOS_FtDataUpload : DevExpress.XtraEditors.XtraForm
+    {
+        clsWork work = new clsWork();
+
+        public frmCMOS_FtDataUpload()
+        {
+            InitializeComponent();
+        }
+
+        private void rg_PART_EditValueChanged(object sender, EventArgs e)
+        {
+            if (rg_PART.EditValue.ToString() == "IOS")
+            {
+                rg_EQUIP.Enabled = true;
+            }
+            else
+            {
+                rg_EQUIP.Enabled = false;
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string filePath = string.Empty;
+                string fileExt = string.Empty;
+                OpenFileDialog file = new OpenFileDialog(); //open dialog to choose file
+                if (file.ShowDialog() == System.Windows.Forms.DialogResult.OK) //if there is a file choosen by the user
+                {
+                    filePath = file.FileName; //get the path of the file
+                    fileExt = Path.GetExtension(filePath); //get the file extension
+
+                    if (fileExt.CompareTo(".csv") == 0 || fileExt.CompareTo(".xlsx") == 0)
+                    {
+                        lbl_filePath.Text = filePath;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please choose .csv file only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error); //custom messageBox to show error
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR");
+            }
+        }
+
+        public DataTable LoadCSV(string fileName)
+        {
+            DataTable table = new DataTable();
+
+            string[] buff = File.ReadAllLines(fileName, Encoding.UTF8);
+
+            foreach (string d in buff)
+            {
+                string[] split = d.Split(',');
+
+                if (split.Length > 0)
+                {
+                    if (split[0] == "X")
+                    {
+                        foreach (string colName in split)
+                        {
+                            table.Columns.Add(colName);
+                        }
+                    }
+                    else
+                    {
+                        table.Rows.Add(split);
+                    }
+                }
+            }
+
+            return table;
+        }
+
+        private void cmos_grid_view(string[] rows)
+        {
+            DataTable table = new DataTable();
+
+            int cnt = 0;
+            foreach (string d in rows)
+            {
+                string[] split = d.Split(',');
+
+                if (split.Length > 0)
+                {
+                    if (cnt == 0)
+                    {
+                        foreach (string colName in split)
+                        {                            
+                            table.Columns.Add(colName);
+                        }
+                    }
+                    else
+                    {
+                        table.Rows.Add(split);
+                    }
+                }
+                cnt = cnt + 1;
+            }
+
+            gvCheckDetail.Columns.Clear();
+            gcCheckDetail.DataSource = table;
+            gvCheckDetail.BestFitColumns();
+        }
+
+        private void ios_grid_view(string[] rows)
+        {
+            DataTable table = new DataTable();
+
+            int cnt = 0;
+            foreach (string d in rows)
+            {
+                string[] split = d.Split(',');
+
+                if (split.Length > 0)
+                {
+                    if (cnt == 0 )
+                    {
+                        // 칼럼이 01.xxx 02.xxx 로 생성 되기 위함
+                        int col_no = 1;
+                        foreach (string colName in split)
+                        {
+                            table.Columns.Add( string.Format("{0:00}.", col_no) + colName);
+
+                            byte[] a = System.Text.Encoding.Default.GetBytes(colName);
+                            //string b = BytesToString(a);
+
+                            col_no++;
+                        }
+                    }
+                    else if(cnt == 1)
+                    {
+                        // 칼럼의 index 번호( 0, 1, 2,,, )
+                        int col_idx = 0;
+                        foreach (string colName in split)
+                        {
+                            table.Columns[col_idx].ColumnName = table.Columns[col_idx].ColumnName + " (" + colName + ")";
+                            col_idx++;
+                        }
+                    }
+                    else
+                    {
+                        table.Rows.Add(split);
+                    }
+                }
+                cnt = cnt + 1;
+            }
+
+            gvCheckDetail.Columns.Clear();
+            gcCheckDetail.DataSource = table;
+            gvCheckDetail.BestFitColumns();
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            string part = "";
+            int equip = 1;
+
+            // part = IOS, CMOS
+            // equip = 1, 2
+            if (rg_PART.EditValue is null)
+            {
+                MessageBox.Show("파트를 선택해주세요.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                part = rg_PART.EditValue.ToString();
+            }
+
+            if (rg_PART.EditValue.ToString() == "IOS" && rg_EQUIP.EditValue is null)
+            {
+                MessageBox.Show("업로드 할 데이터를 추출한 장비를 선택해주세요.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (rg_PART.EditValue.ToString() == "IOS" && !(rg_EQUIP.EditValue is null))
+            {
+                equip = Convert.ToInt16(rg_EQUIP.EditValue);
+            }
+
+            if (string.IsNullOrEmpty(lbl_filePath.Text))
+            {
+                MessageBox.Show("업로드 할 데이터 파일을 선택해주세요.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string key = "";
+            string keys = "";
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(frmWait), true, true, false);
+                RemoveBlankRowsFromCVSFile(lbl_filePath.Text);
+
+                Filehandle fh = new Filehandle(lbl_filePath.Text);
+
+                string[] rows = null;
+
+                // CMOS, IOS 의 인코딩이 틀려서, 인코딩 로직 적용
+                if (part == "CMOS")
+                {
+                    rows = fh.Cmos_Ios_TextFileReadLine(part);
+                }
+                else
+                {
+                    rows = fh.Cmos_Ios_TextFileReadLine(part);
+                }
+
+                //key (Wafer No or Serial No) 가 있는 col 찾기
+                int keyCol = 0;
+
+                string[] cells = rows[0].Split(',');
+
+                for (int i = 0; i < cells.Length; i++)
+                {
+                    if (cells[i].Trim().Equals("WaferNo") || cells[i].Trim().Equals("Barcode"))
+                    {
+                        keyCol = i;
+                        key = "wafer";
+                        break;
+                    }
+                    else if (cells[i].Trim().Equals("SerialNo"))
+                    {
+                        keyCol = i;
+                        key = "serial";
+                        break;
+                    }
+                }
+
+                // CMOS, IOS 파일 검증
+                if(part == "CMOS")
+                {
+                    if(key != "wafer")
+                    {
+                        MessageBox.Show("CMOS 업로드 파일이 아닙니다.\r\n파일을 확인 해주세요.");
+                        return;
+                    }
+                }
+                else if(part == "IOS")
+                {
+                    if(key != "serial")
+                    {
+                        MessageBox.Show("IOS 업로드 파일이 아닙니다.\r\n파일을 확인 해주세요.");
+                        return;
+                    }
+                }
+
+                //keyCol (Wafer No or Serial No) 뽑기
+                int startRow = 1;
+                int specRow = 1;
+                string[] specCells;
+
+                for (int i = 1; i < rows.Length; i++)
+                {
+                    if (rows[i].Contains("Spec") || rows[i].Contains("spec"))
+                    {
+                        specRow = i;                        // spec 이 있는 row 번호
+                        specCells = rows[i].Split(',');     // spec row 정보를 specCells 배열에 담기
+                        startRow = specRow + 1;             // Start Row 번호
+                    }
+                    else
+                    {
+                        keys += rows[i].Split(',')[keyCol].Trim() + ",";
+                    }
+                }
+
+                progressBarControl1.Properties.Maximum = rows.Length - startRow;
+                progressBarControl1.Position = 0;
+                labelControl1.Text = progressBarControl1.Position.ToString() + " / " + progressBarControl1.Properties.Maximum.ToString();
+
+                labelControl1.Refresh();
+
+                SplashScreenManager.CloseForm(false);
+
+                string ErrorMsg = "";
+                // CMOS 일 경우
+                // csv 데이터 돌면서...값 찾아서 하나씩 집어넣기
+                if (part == "CMOS")
+                {
+                    // grid 에 dt 바인딩
+                    cmos_grid_view(rows);
+
+                    for ( int i = 1; i < rows.Length; i++)
+                    {
+                        // FT_CSV_INSERT 테이블에 원본 데이터 업로드
+                        bool bl = work.FT_CSV_INSERT(part, "", rows[i].ToString());
+
+                        // Error 일경우 빠져 나가기
+                        if (!bl) { return; }
+
+                        // 1 Row 를 읽어서 Procedure 로 전달
+                        // Procedure 에서 30 칼럼으로 분리후 물리 칼럼에 저장
+                        bool bl2 = work.CmosFtDataCmos(rows[i].ToString());
+
+                        // Error 일경우 빠져 나가기
+                        if (!bl2) { return; }
+
+                        // 진행바 Update
+                        progressBarControl1.Position = i;
+                        progressBarControl1.Refresh();
+                        labelControl1.Text = progressBarControl1.Position.ToString() + " / " + progressBarControl1.Properties.Maximum.ToString();
+
+
+                        string[] cell = rows[i].Split(',');
+                        string key_no = cell[keyCol].Trim();
+
+                        //string cell_para = "";
+                        //for (int j = 0; j < cell.Length; j++)
+                        //{
+                        //    cell_para = cell_para + cell[j].ToString();
+                        //}
+                    }
+                }
+
+                // IOS 일 경우
+                // csv 데이터 돌면서...값 찾아서 하나씩 집어넣기
+                if (part == "IOS")
+                {
+                    // grid 에 dt 바인딩
+                    ios_grid_view(rows);
+
+                    // IOS 업로드시 ID_KEY 값이 필요함
+                    // Master 테이블의 ID_KEY 칼럼의 Max + 1 값을 받아옮
+                    string max_1 = work.CmosFtDataIosID_KEY();                    
+
+                    for (int i = 1; i < rows.Length; i++)
+                    {
+                        // FT_CSV_INSERT 테이블에 원본 데이터 업로드
+                        bool bl = work.FT_CSV_INSERT(part, equip.ToString(), rows[i].ToString());
+
+                        // Error 일경우 빠져 나가기
+                        if (!bl) { return; }
+
+                        bool bl2;
+                        
+                        // Max Row 인 경우
+                        
+                        // Spec Row 인 경우 Master 테이블에 Insert
+                        if ( specRow == i )
+                        {
+                            bl2 = work.CmosFtDataIosM(rows[i].ToString(), equip.ToString(), max_1);
+                        }
+                        // Data Row 인경우 Detail 테이블에 Insert
+                        else
+                        {
+                            bl2 = work.CmosFtDataIosD(rows[i].ToString(), equip.ToString(), max_1);
+                        }
+
+                        // Error 일경우 빠져 나가기
+                        if (!bl2) { return; }
+
+                        // 진행바 Update
+                        progressBarControl1.Position = i;
+                        progressBarControl1.Refresh();
+                        labelControl1.Text = progressBarControl1.Position.ToString() + " / " + progressBarControl1.Properties.Maximum.ToString();
+
+
+
+
+                        string[] cell = rows[i].Split(',');
+                        string key_no = cell[keyCol].Trim();
+                    }
+                }
+
+                // Grid 에 뿌리는 로직
+                                
+
+                SplashScreenManager.CloseForm(false);
+
+                if (!string.IsNullOrEmpty(ErrorMsg))
+                {
+                    MessageBox.Show(ErrorMsg, "DB Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                MessageBox.Show(ex.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                //if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(keys))
+                //{
+                //    DataTable dt = new DataTable();
+
+                //    //_RYMES_DB._DB_Parameters.Add("@p_KEY", key);
+                //    //_RYMES_DB._DB_Parameters.Add("@p_KEYS", keys);
+                //    //string sMsg = _RYMES_DB.GET_DATA("FT_SPEC_OUT_CHK_VALUE_LOAD", ref dt);
+                //    string sMsg = "";
+
+                //    if (string.IsNullOrEmpty(sMsg))
+                //    {
+                //        DataTable dt2 = dt.Clone();
+
+                //        foreach (DataRow dr in dt.Rows)
+                //        {
+                //            if (!string.IsNullOrEmpty(dr["SPEC"].ToString()))
+                //            {
+                //                bool spec_out = false;
+                //                string spec = dr["SPEC"].ToString();
+                //                string value = dr["VALUE_RESULT"].ToString();
+
+                //                if (spec == "0")
+                //                {
+                //                    spec_out = value == "0" ? false : true;
+                //                }
+                //                else if (spec.IndexOf(">") >= 0)
+                //                {
+                //                    spec_out = Convert.ToDecimal(value) > Convert.ToDecimal(spec.Replace(">", "")) ? false : true;
+                //                }
+                //                else if (spec.IndexOf("≥") >= 0)
+                //                {
+                //                    spec_out = Convert.ToDecimal(value) >= Convert.ToDecimal(spec.Replace("≥", "")) ? false : true;
+                //                }
+                //                else if (spec.IndexOf("≤") >= 0)
+                //                {
+                //                    spec_out = Convert.ToDecimal(value) <= Convert.ToDecimal(spec.Replace("≤", "")) ? false : true;
+                //                }
+                //                else if (spec.IndexOf("<") >= 0)
+                //                {
+                //                    spec_out = Convert.ToDecimal(value) < Convert.ToDecimal(spec.Replace("<", "")) ? false : true;
+                //                }
+                //                else if (spec.IndexOf("~") >= 0)
+                //                {
+                //                    string[] split = spec.Split('~');
+
+                //                    spec_out = Convert.ToDecimal(split[0]) <= Convert.ToDecimal(value)
+                //                                && Convert.ToDecimal(value) <= Convert.ToDecimal(split[1]) ? false : true;
+                //                }
+
+                //                if (spec_out)
+                //                {
+                //                    dt2.Rows.Add(dr.ItemArray);
+                //                }
+                //            }
+                //        }
+
+                //        //ucGridControl2.DataSource = dt2;
+                //    }
+                //    else
+                //    {
+                //        //ucGridControl2.DataSource = null;
+                //    }
+                //}
+                //else
+                //{
+                //    //ucGridControl2.DataSource = null;
+                //}
+                //ucGridView2.BestFitColumns();
+                //SplashScreenManager.CloseForm(true);
+            }            
+        }
+
+        public void RemoveBlankRowsFromCVSFile(string filepath)
+        {
+            if (filepath == null || filepath.Length == 0)
+            {
+                throw new ArgumentNullException("filepath");
+            }
+
+            if (!File.Exists(filepath))
+            {
+                throw new FileNotFoundException("Could not find CVS file.", filepath);
+            }
+
+            String tempFile = Path.GetTempFileName();
+
+            using (StreamReader reader = new StreamReader(filepath))
+            using (StreamWriter writer = new StreamWriter(tempFile))
+            {
+                String line = null;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (!String.IsNullOrWhiteSpace(line.Replace(',', ' ')))
+                    {
+                        writer.WriteLine(line);
+                    }
+                }
+            }
+
+            File.Delete(filepath);
+            File.Move(tempFile, filepath);
+        }
+
+        private void frmCMOS_FtDataUpload_Load(object sender, EventArgs e)
+        {
+            StreamReader sr = new StreamReader(@"C:\Users\test\Downloads\1.csv", Encoding.GetEncoding("euc-kr"));
+            string line = sr.ReadToEnd();
+        }
+    }
+}

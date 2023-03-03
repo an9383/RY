@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_OQC" targetNamespace="http://tempuri.org/ds_OQC.xsd" xmlns:mstns="http://tempuri.org/ds_OQC.xsd" xmlns="http://tempuri.org/ds_OQC.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_OQC" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_OQC" msprop:Generator_UserDSName="ds_OQC">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CHK_PROCESS_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_PROCESS_NAME" msprop:Generator_ColumnPropNameInRow="CHK_PROCESS_NAME" msprop:Generator_ColumnPropNameInTable="CHK_PROCESS_NAMEColumn" msprop:Generator_UserColumnName="CHK_PROCESS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_NAME" msprop:Generator_ColumnPropNameInRow="CHK_NAME" msprop:Generator_ColumnPropNameInTable="CHK_NAMEColumn" msprop:Generator_UserColumnName="CHK_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CRITERIA" msprop:Generator_ColumnVarNameInTable="columnCRITERIA" msprop:Generator_ColumnPropNameInRow="CRITERIA" msprop:Generator_ColumnPropNameInTable="CRITERIAColumn" msprop:Generator_UserColumnName="CRITERIA" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECTION_METHOD" msprop:Generator_ColumnVarNameInTable="columnINSPECTION_METHOD" msprop:Generator_ColumnPropNameInRow="INSPECTION_METHOD" msprop:Generator_ColumnPropNameInTable="INSPECTION_METHODColumn" msprop:Generator_UserColumnName="INSPECTION_METHOD" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECTION_RESULT" msprop:Generator_ColumnVarNameInTable="columnINSPECTION_RESULT" msprop:Generator_ColumnPropNameInRow="INSPECTION_RESULT" msprop:Generator_ColumnPropNameInTable="INSPECTION_RESULTColumn" msprop:Generator_UserColumnName="INSPECTION_RESULT" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECTION_UNIT" msprop:Generator_ColumnVarNameInTable="columnINSPECTION_UNIT" msprop:Generator_ColumnPropNameInRow="INSPECTION_UNIT" msprop:Generator_ColumnPropNameInTable="INSPECTION_UNITColumn" msprop:Generator_UserColumnName="INSPECTION_UNIT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

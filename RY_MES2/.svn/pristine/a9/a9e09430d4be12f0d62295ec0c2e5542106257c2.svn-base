@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_QC_CMOS" targetNamespace="http://tempuri.org/ds_QC_CMOS.xsd" xmlns:mstns="http://tempuri.org/ds_QC_CMOS.xsd" xmlns="http://tempuri.org/ds_QC_CMOS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_QC_CMOS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_QC_CMOS" msprop:Generator_UserDSName="ds_QC_CMOS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Table1" msprop:Generator_TableClassName="Table1DataTable" msprop:Generator_TableVarName="tableTable1" msprop:Generator_TablePropName="Table1" msprop:Generator_RowDeletingName="Table1RowDeleting" msprop:Generator_RowChangingName="Table1RowChanging" msprop:Generator_RowEvHandlerName="Table1RowChangeEventHandler" msprop:Generator_RowDeletedName="Table1RowDeleted" msprop:Generator_UserTableName="Table1" msprop:Generator_RowChangedName="Table1RowChanged" msprop:Generator_RowEvArgName="Table1RowChangeEvent" msprop:Generator_RowClassName="Table1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WAFER_NO" msprop:Generator_ColumnVarNameInTable="columnWAFER_NO" msprop:Generator_ColumnPropNameInRow="WAFER_NO" msprop:Generator_ColumnPropNameInTable="WAFER_NOColumn" msprop:Generator_UserColumnName="WAFER_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="HIC" msprop:Generator_ColumnVarNameInTable="columnHIC" msprop:Generator_ColumnPropNameInRow="HIC" msprop:Generator_ColumnPropNameInTable="HICColumn" msprop:Generator_UserColumnName="HIC" type="xs:string" minOccurs="0" />
+              <xs:element name="SCINTILLATOR" msprop:Generator_ColumnVarNameInTable="columnSCINTILLATOR" msprop:Generator_ColumnPropNameInRow="SCINTILLATOR" msprop:Generator_ColumnPropNameInTable="SCINTILLATORColumn" msprop:Generator_UserColumnName="SCINTILLATOR" type="xs:string" minOccurs="0" />
+              <xs:element name="BOARD" msprop:Generator_ColumnVarNameInTable="columnBOARD" msprop:Generator_ColumnPropNameInRow="BOARD" msprop:Generator_ColumnPropNameInTable="BOARDColumn" msprop:Generator_UserColumnName="BOARD" type="xs:string" minOccurs="0" />
+              <xs:element name="PRODUCT_SN" msprop:Generator_ColumnVarNameInTable="columnPRODUCT_SN" msprop:Generator_ColumnPropNameInRow="PRODUCT_SN" msprop:Generator_ColumnPropNameInTable="PRODUCT_SNColumn" msprop:Generator_UserColumnName="PRODUCT_SN" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Table2" msprop:Generator_TableClassName="Table2DataTable" msprop:Generator_TableVarName="tableTable2" msprop:Generator_TablePropName="Table2" msprop:Generator_RowDeletingName="Table2RowDeleting" msprop:Generator_RowChangingName="Table2RowChanging" msprop:Generator_RowEvHandlerName="Table2RowChangeEventHandler" msprop:Generator_RowDeletedName="Table2RowDeleted" msprop:Generator_UserTableName="Table2" msprop:Generator_RowChangedName="Table2RowChanged" msprop:Generator_RowEvArgName="Table2RowChangeEvent" msprop:Generator_RowClassName="Table2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ORDERBY" msprop:Generator_ColumnVarNameInTable="columnORDERBY" msprop:Generator_ColumnPropNameInRow="ORDERBY" msprop:Generator_ColumnPropNameInTable="ORDERBYColumn" msprop:Generator_UserColumnName="ORDERBY" type="xs:string" minOccurs="0" />
+              <xs:element name="OP_NAME" msprop:Generator_ColumnVarNameInTable="columnOP_NAME" msprop:Generator_ColumnPropNameInRow="OP_NAME" msprop:Generator_ColumnPropNameInTable="OP_NAMEColumn" msprop:Generator_UserColumnName="OP_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="OP_TYPE" msprop:Generator_ColumnVarNameInTable="columnOP_TYPE" msprop:Generator_ColumnPropNameInRow="OP_TYPE" msprop:Generator_ColumnPropNameInTable="OP_TYPEColumn" msprop:Generator_UserColumnName="OP_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_PROCESS_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_PROCESS_NAME" msprop:Generator_ColumnPropNameInRow="CHK_PROCESS_NAME" msprop:Generator_ColumnPropNameInTable="CHK_PROCESS_NAMEColumn" msprop:Generator_UserColumnName="CHK_PROCESS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_NAME" msprop:Generator_ColumnPropNameInRow="CHK_NAME" msprop:Generator_ColumnPropNameInTable="CHK_NAMEColumn" msprop:Generator_UserColumnName="CHK_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CRITERIA" msprop:Generator_ColumnVarNameInTable="columnCRITERIA" msprop:Generator_ColumnPropNameInRow="CRITERIA" msprop:Generator_ColumnPropNameInTable="CRITERIAColumn" msprop:Generator_UserColumnName="CRITERIA" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECTION_METHOD" msprop:Generator_ColumnVarNameInTable="columnINSPECTION_METHOD" msprop:Generator_ColumnPropNameInRow="INSPECTION_METHOD" msprop:Generator_ColumnPropNameInTable="INSPECTION_METHODColumn" msprop:Generator_UserColumnName="INSPECTION_METHOD" type="xs:string" minOccurs="0" />
+              <xs:element name="CREATE_USER" msprop:Generator_ColumnVarNameInTable="columnCREATE_USER" msprop:Generator_ColumnPropNameInRow="CREATE_USER" msprop:Generator_ColumnPropNameInTable="CREATE_USERColumn" msprop:Generator_UserColumnName="CREATE_USER" type="xs:string" minOccurs="0" />
+              <xs:element name="CREATE_DATE" msprop:Generator_ColumnVarNameInTable="columnCREATE_DATE" msprop:Generator_ColumnPropNameInRow="CREATE_DATE" msprop:Generator_ColumnPropNameInTable="CREATE_DATEColumn" msprop:Generator_UserColumnName="CREATE_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="VALUE_RESULT" msprop:Generator_ColumnVarNameInTable="columnVALUE_RESULT" msprop:Generator_ColumnPropNameInRow="VALUE_RESULT" msprop:Generator_ColumnPropNameInTable="VALUE_RESULTColumn" msprop:Generator_UserColumnName="VALUE_RESULT" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECTION_RESULT" msprop:Generator_ColumnVarNameInTable="columnINSPECTION_RESULT" msprop:Generator_ColumnPropNameInRow="INSPECTION_RESULT" msprop:Generator_ColumnPropNameInTable="INSPECTION_RESULTColumn" msprop:Generator_UserColumnName="INSPECTION_RESULT" type="xs:string" minOccurs="0" />
+              <xs:element name="WAFER_NO" msprop:Generator_ColumnVarNameInTable="columnWAFER_NO" msprop:Generator_ColumnPropNameInRow="WAFER_NO" msprop:Generator_ColumnPropNameInTable="WAFER_NOColumn" msprop:Generator_UserColumnName="WAFER_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="IDX" msprop:Generator_ColumnVarNameInTable="columnIDX" msprop:Generator_ColumnPropNameInRow="IDX" msprop:Generator_ColumnPropNameInTable="IDXColumn" msprop:Generator_UserColumnName="IDX" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Table3" msprop:Generator_TableClassName="Table3DataTable" msprop:Generator_TableVarName="tableTable3" msprop:Generator_TablePropName="Table3" msprop:Generator_RowDeletingName="Table3RowDeleting" msprop:Generator_RowChangingName="Table3RowChanging" msprop:Generator_RowEvHandlerName="Table3RowChangeEventHandler" msprop:Generator_RowDeletedName="Table3RowDeleted" msprop:Generator_UserTableName="Table3" msprop:Generator_RowChangedName="Table3RowChanged" msprop:Generator_RowEvArgName="Table3RowChangeEvent" msprop:Generator_RowClassName="Table3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ORDERBY" msprop:Generator_ColumnVarNameInTable="columnORDERBY" msprop:Generator_ColumnPropNameInRow="ORDERBY" msprop:Generator_ColumnPropNameInTable="ORDERBYColumn" msprop:Generator_UserColumnName="ORDERBY" type="xs:string" minOccurs="0" />
+              <xs:element name="OP_NAME" msprop:Generator_ColumnVarNameInTable="columnOP_NAME" msprop:Generator_ColumnPropNameInRow="OP_NAME" msprop:Generator_ColumnPropNameInTable="OP_NAMEColumn" msprop:Generator_UserColumnName="OP_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="OP_TYPE" msprop:Generator_ColumnVarNameInTable="columnOP_TYPE" msprop:Generator_ColumnPropNameInRow="OP_TYPE" msprop:Generator_ColumnPropNameInTable="OP_TYPEColumn" msprop:Generator_UserColumnName="OP_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_PROCESS_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_PROCESS_NAME" msprop:Generator_ColumnPropNameInRow="CHK_PROCESS_NAME" msprop:Generator_ColumnPropNameInTable="CHK_PROCESS_NAMEColumn" msprop:Generator_UserColumnName="CHK_PROCESS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_NAME" msprop:Generator_ColumnPropNameInRow="CHK_NAME" msprop:Generator_ColumnPropNameInTable="CHK_NAMEColumn" msprop:Generator_UserColumnName="CHK_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CRITERIA" msprop:Generator_ColumnVarNameInTable="columnCRITERIA" msprop:Generator_ColumnPropNameInRow="CRITERIA" msprop:Generator_ColumnPropNameInTable="CRITERIAColumn" msprop:Generator_UserColumnName="CRITERIA" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECTION_METHOD" msprop:Generator_ColumnVarNameInTable="columnINSPECTION_METHOD" msprop:Generator_ColumnPropNameInRow="INSPECTION_METHOD" msprop:Generator_ColumnPropNameInTable="INSPECTION_METHODColumn" msprop:Generator_UserColumnName="INSPECTION_METHOD" type="xs:string" minOccurs="0" />
+              <xs:element name="CREATE_USER" msprop:Generator_ColumnVarNameInTable="columnCREATE_USER" msprop:Generator_ColumnPropNameInRow="CREATE_USER" msprop:Generator_ColumnPropNameInTable="CREATE_USERColumn" msprop:Generator_UserColumnName="CREATE_USER" type="xs:string" minOccurs="0" />
+              <xs:element name="CREATE_DATE" msprop:Generator_ColumnVarNameInTable="columnCREATE_DATE" msprop:Generator_ColumnPropNameInRow="CREATE_DATE" msprop:Generator_ColumnPropNameInTable="CREATE_DATEColumn" msprop:Generator_UserColumnName="CREATE_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="VALUE_RESULT" msprop:Generator_ColumnVarNameInTable="columnVALUE_RESULT" msprop:Generator_ColumnPropNameInRow="VALUE_RESULT" msprop:Generator_ColumnPropNameInTable="VALUE_RESULTColumn" msprop:Generator_UserColumnName="VALUE_RESULT" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECTION_RESULT" msprop:Generator_ColumnVarNameInTable="columnINSPECTION_RESULT" msprop:Generator_ColumnPropNameInRow="INSPECTION_RESULT" msprop:Generator_ColumnPropNameInTable="INSPECTION_RESULTColumn" msprop:Generator_UserColumnName="INSPECTION_RESULT" type="xs:string" minOccurs="0" />
+              <xs:element name="WAFER_NO" msprop:Generator_ColumnVarNameInTable="columnWAFER_NO" msprop:Generator_ColumnPropNameInRow="WAFER_NO" msprop:Generator_ColumnPropNameInTable="WAFER_NOColumn" msprop:Generator_UserColumnName="WAFER_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="IDX" msprop:Generator_ColumnVarNameInTable="columnIDX" msprop:Generator_ColumnPropNameInRow="IDX" msprop:Generator_ColumnPropNameInTable="IDXColumn" msprop:Generator_UserColumnName="IDX" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Table1" />
+      <xs:field xpath="mstns:WAFER_NO" />
+    </xs:unique>
+    <xs:keyref name="Relation2" refer="Constraint1" msprop:rel_Generator_UserChildTable="Table3" msprop:rel_Generator_ChildPropName="GetTable3Rows" msprop:rel_Generator_UserRelationName="Relation2" msprop:rel_Generator_ParentPropName="Table1Row" msprop:rel_Generator_RelationVarName="relationRelation2" msprop:rel_Generator_UserParentTable="Table1" msdata:UpdateRule="None" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:Table3" />
+      <xs:field xpath="mstns:WAFER_NO" />
+    </xs:keyref>
+    <xs:keyref name="Relation1" refer="Constraint1" msprop:rel_Generator_UserChildTable="Table2" msprop:rel_Generator_ChildPropName="GetTable2Rows" msprop:rel_Generator_UserRelationName="Relation1" msprop:rel_Generator_ParentPropName="Table1Row" msprop:rel_Generator_RelationVarName="relationRelation1" msprop:rel_Generator_UserParentTable="Table1" msdata:UpdateRule="None" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:Table2" />
+      <xs:field xpath="mstns:WAFER_NO" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

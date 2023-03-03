@@ -1,0 +1,4 @@
+[2023-02-15 09:14:21.122809] 	[DataBase Exception] 
+	 SQL : SELECT FILE_NAME, FILE_PATH, UPDATE_DATE FROM PGM_MGT
+	 Parameter : 
+SQL Server에 연결을 설정하는 중에 네트워크 관련 또는 인스턴스 관련 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바르고 SQL Server가 원격 연결을 허용하도록 구성되어 있는지 확인하십시오. (provider: Named Pipes Provider, error: 40 - SQL Server에 대한 연결을 열 수 없습니다.)

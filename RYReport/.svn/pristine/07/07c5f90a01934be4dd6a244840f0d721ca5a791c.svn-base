@@ -1,0 +1,16 @@
+﻿function UserTest(sender, args) {
+    if (args.ItemName == "gridDashboardItem1") {
+        var dashboardParameterDialogExtension = sender.GetDashboardControl().findExtension('dashboardParameterDialog');
+        var parameters = dashboardParameterDialogExtension.getParameters();
+        var parameter1 = parameters.getParameterByName("pProductFamilyName");
+        var parameter2 = parameters.getParameterByName("pSapCode");
+        parameter1.setValue(args.Values[0][1]);
+    }
+    if (args.ItemName == "gridDashboardItem2") {
+        var dashboardParameterDialogExtension = sender.GetDashboardControl().findExtension('dashboardParameterDialog');
+        var parameters = dashboardParameterDialogExtension.getParameters();
+        var parameter2 = parameters.getParameterByName("pSapCode");
+        parameter2.setValue(args.Values[0][1]);
+    }
+
+}

@@ -1,0 +1,21 @@
+﻿using DevExpress.XtraEditors;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace VTMES3_RE.View.CheckSheet
+{
+    public partial class frmMachineCheckSheet : DevExpress.XtraEditors.XtraForm
+    {
+        public frmMachineCheckSheet()
+        {
+            InitializeComponent();
+        }
+    }
+}
